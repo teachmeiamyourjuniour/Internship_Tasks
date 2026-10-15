@@ -1,2 +1,2 @@
 # Internship_Tasks
-Record containing my internships as a proof for my data analytics internship.
+Record containing my internships tasks as a proof for my data analytics internship.
