@@ -1,25 +1,25 @@
 # 20.Piling Up!
 # https://www.hackerrank.com/challenges/piling-up/problem
 
+from collections import deque
+def possible_to_make_pillar(blocks):
+    while blocks:
+        if blocks[-1] >= blocks[0]:
+            lastcube = blocks[-1]
+            blocks.pop()
+        elif blocks[0] > blocks[-1]:
+            lastcube = blocks[0]
+            blocks.popleft()
+        if blocks and (blocks[0]> lastcube or blocks[-1] > lastcube):
+            return "No"
+    return "Yes"
+            
+
 T = int(input())
-for i in range(T):
-    n = int(input())
-    blocks = list(map(int, input().split()))
-    stackable = True
-    j, k = 0, n-1
-    top = max(blocks[j], blocks[k])+1
-    while stackable and j - k <= 0:
-        if blocks[j] > blocks[k] and blocks[j] <= top:
-            top = blocks[j]
-            j += 1
-        elif blocks[k] > blocks[j] and blocks[k] <= top:
-            top = blocks[k]
-            k -= 1
-        elif blocks[j] == blocks[k] and blocks[j] <= top:
-            top = blocks[j]
-            j += 1
-        else:
-            stackable = False
+for _ in range(T):
+    _ = input()
+    blocks = deque(map(int,input().split()))
+    print(possible_to_make_pillar(blocks))
         
     if stackable:
         print('Yes')
